@@ -12,6 +12,7 @@ import logoStatisticNorwayMonochromeDarkPng from "ui/assets/img/Logo_StatisticNo
 import logoStatisticNorwayMonochromeLightPng from "ui/assets/img/Logo_StatisticNorway_monochrome_light.png";
 import { tss, keyframes, Button } from "ui/theme";
 import { breakpointsValues } from "onyxia-ui";
+import { declareComponentKeys, useTranslation } from "ui/i18n";
 
 const getLogos = (isDark: boolean) => [
     { src: isDark ? logoExpertiseFranceMonochromeDarkPng : logoExpertiseFranceMonochromeLightPng, alt: "Logo Expertise France" },
@@ -31,6 +32,8 @@ export function LogoCarousel(
 ) {
 
     const { className, testimonialSectionId } = props;
+
+    const { t } = useTranslation({ LogoCarousel });
 
     const { classes, theme, cx, css } = useStyles();
 
@@ -91,12 +94,14 @@ export function LogoCarousel(
                     href={`#${testimonialSectionId}`}
                     doOpenNewTabIfHref={false}
                 >
-                    See testimonials
+                    {t("read testimonials")}
                 </Button>
             </div>
         </div>
     );
 }
+
+export const { i18n } = declareComponentKeys<"read testimonials">()({ LogoCarousel });
 
 
 const useStyles = tss

@@ -1,5 +1,6 @@
 import { createI18nApi } from "i18nifty";
 import MuiLink from "@mui/material/Link";
+export { declareComponentKeys } from "i18nifty";
 
 export const languages = ["en", "fr"] as const;
 
@@ -14,7 +15,8 @@ export const {
     useResolveLocalizedString,
 } = createI18nApi<
     | typeof import("./App").i18n
-    | typeof import("./pages/Home").i18n
+    | typeof import("./pages/Home/Home").i18n
+    | typeof import("./pages/Home/LogoCarousel").i18n
     | typeof import("./pages/FourOhFour").i18n
 >()(
     {
@@ -128,6 +130,9 @@ export const {
                 `,
                 "Review slide Genes signature": `National Schools of Economics and Statistics Group (GENES)`
 
+            },
+            "LogoCarousel": {
+                "read testimonials": "Read testimonials",
             },
             "FourOhFour": {
                 "not found": "Page not found",
@@ -252,6 +257,9 @@ export const {
                 `,
                 "Review slide Genes signature": `Groupe des Écoles Nationales d'Économie et Statistique (GENES)`
 
+            },
+            "LogoCarousel": {
+                "read testimonials": "Lire les témoignages",
             },
             "FourOhFour": {
                 "not found": "Page non trouvée",

@@ -23,7 +23,7 @@ import launcherMp4Url from "ui/assets/video/launcher.mp4";
 import launcherWebmUrl from "ui/assets/video/launcher.webm";
 import dragoonSvgUrl from "ui/assets/svg/Dragoon.svg";
 import { GlCheckList } from "gitlanding/GlCheckList";
-import { ReactComponent as TileSvg } from "../assets/svg/tile.svg";
+import { ReactComponent as TileSvg } from "ui/assets/svg/tile.svg";
 import keycloakifyDemoMp4Url from "ui/assets/video/Keycloakify_demo.mp4";
 import keycloakifyDemoWebmUrl from "ui/assets/video/Keycloakify_demo.webm";
 import { useLang } from "ui/i18n";
