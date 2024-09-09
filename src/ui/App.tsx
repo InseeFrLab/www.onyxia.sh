@@ -21,6 +21,7 @@ import { Evt } from "evt";
 import { breakpointsValues } from "onyxia-ui";
 import { declareComponentKeys } from "i18nifty";
 import { GlFooter } from "gitlanding/GlFooter";
+import { GlobalStyles } from "tss-react";
 
 /* spell-checker: disable */
 export const App = memo(() => {
@@ -58,6 +59,13 @@ export const App = memo(() => {
 
     return (
         <>
+            <GlobalStyles
+                styles={{
+                    html: {
+                        scrollBehavior: "smooth",
+                    },
+                }}
+            />
             <GlTemplate
                 header={
                     <GlHeader

@@ -43,6 +43,8 @@ export function Home() {
     const { classes, theme, css } = useStyles();
     const { lang } = useLang();
 
+    const testimonialsSectionId = "testimonials";
+
     return (
         <>
             <GlHero
@@ -68,13 +70,19 @@ export function Home() {
                 }}
                 className={classes.firstHero}
             />
-            <LogoCarousel  className={css({ 
+            <LogoCarousel  
+            testimonialSectionId={testimonialsSectionId}
+            className={css({ 
                 maxWidth: "min(1250px, 90%)",
                 overflow: "visible",
                 margin: "auto",
 
-            })} />
+            })} 
+            />
             <GlYoutubeVideoSection
+                className={css({
+                    marginTop: theme.spacing(7)
+                })}
                 title={t("Onyxia in action")}
                 src="https://www.youtube.com/embed/FvpNfVrxBFM"
                 hasAnimation={true}
@@ -170,6 +178,7 @@ export function Home() {
             />
             <GlSectionDivider />
             <GlSlider
+                id={testimonialsSectionId}
                 title={t("They have their own Onyxia Datalab")}
                 autoPlayTimeInterval={4}
                 classes={{
@@ -304,6 +313,7 @@ const useStyles = tss.withName({ Home }).create(({ theme }) => ({
 
             return {};
         })(),
+        "marginBottom": theme.spacing(5),
         "maxWidth": 700,
     },
     "articleImage": {

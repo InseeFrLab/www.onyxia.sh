@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import Color from "color";
 import logoExpertiseFranceMonochromeDarkPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_dark.png";
 import logoExpertiseFranceMonochromeLightPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_light.png";
 import logoInseeMonochromeLightPng from "ui/assets/img/Logo_Insee_monochrome_light.png";
@@ -20,15 +21,16 @@ const getLogos = (isDark: boolean) => [
     { src: isDark ? logoStatisticNorwayMonochromeDarkPng : logoStatisticNorwayMonochromeLightPng, alt: "Logo Statistic Norway" },
 ] as const;
 
-type Props= {
+type Props = {
     className?: string;
+    testimonialSectionId: string;
 };
 
 export function LogoCarousel(
     props: Props
 ) {
 
-    const { className } = props;
+    const { className, testimonialSectionId } = props;
 
     const { classes, theme, cx, css } = useStyles();
 
@@ -85,7 +87,12 @@ export function LogoCarousel(
             {renderGroup(false)}
             {renderGroup(true)}
             <div className={classes.overlay}>
-                <Button>See testimonials</Button>
+                <Button
+                    href={`#${testimonialSectionId}`}
+                    doOpenNewTabIfHref={false}
+                >
+                    See testimonials
+                </Button>
             </div>
         </div>
     );
@@ -96,47 +103,50 @@ const useStyles = tss
     .withName({ LogoCarousel })
     .withNestedSelectors<"overlay">()
     .create(({ theme, classes }) => ({
-    root: {
-        ...theme.spacing.topBottom("padding", 4),
-        overflow: "hidden", 
-        display: "flex",
-        alignItems: "center",
-        maskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)",
-        position: "relative",
-        [`&:hover .${classes.overlay}`]: {
+        root: {
+            ...theme.spacing.topBottom("padding", 5),
+            overflow: "hidden",
             display: "flex",
-        }
-    },
-    overlay: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        display: "none",
-        alignItems: "center",
-        justifyContent: "center",
-        //backgroundColor: theme.colors.useCases.surfaces.background, 
-        backdropFilter: "blur(10px)", 
-    },
-    group: {
-        justifyContent: "space-around",
-        display: "flex",
-        gap: theme.spacing(7),
-        animation: `${keyframes({
-            "from": {
-                transform: "translateX(0)",
-            },
-            "to": {
-                transform: "translateX(-100%)",
-            },
-        })} 30s linear infinite`,
-        flexShrink: 0,
-        minWidth: "100%",
-    },
-    logo: {
-        height: "auto", 
-        objectFit: "contain", 
-    },
-}));
+            alignItems: "center",
+            maskImage:
+                "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)",
+            position: "relative",
+            [`&:hover .${classes.overlay}`]: {
+                display: "flex",
+            }
+        },
+        overlay: {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "none",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: new Color(theme.colors.useCases.surfaces.background,)
+                .rgb()
+                .alpha(0.8)
+                .string(),
+            backdropFilter: "blur(5px)",
+        },
+        group: {
+            justifyContent: "space-around",
+            display: "flex",
+            gap: theme.spacing(7),
+            animation: `${keyframes({
+                "from": {
+                    transform: "translateX(0)",
+                },
+                "to": {
+                    transform: "translateX(-100%)",
+                },
+            })} 30s linear infinite`,
+            flexShrink: 0,
+            minWidth: "100%",
+        },
+        logo: {
+            height: "auto",
+            objectFit: "contain",
+        },
+    }));
