@@ -9,7 +9,7 @@ import logoGenesMonochromeDarkPng from "ui/assets/img/Logo_Genes_monochrome_dark
 import logoGenesMonochromeLightPng from "ui/assets/img/Logo_Genes_monochrome_light.png";
 import logoStatisticNorwayMonochromeDarkPng from "ui/assets/img/Logo_StatisticNorway_monochrome_dark.png";
 import logoStatisticNorwayMonochromeLightPng from "ui/assets/img/Logo_StatisticNorway_monochrome_light.png";
-import { tss, keyframes } from "ui/theme";
+import { tss, keyframes, Button } from "ui/theme";
 import { breakpointsValues } from "onyxia-ui";
 
 const getLogos = (isDark: boolean) => [
@@ -83,21 +83,42 @@ export function LogoCarousel(
     return (
         <div className={cx(classes.root, className)}>
             {renderGroup(false)}
-
             {renderGroup(true)}
+            <div className={classes.overlay}>
+                <Button>See testimonials</Button>
+            </div>
         </div>
     );
 }
 
 
-const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
+const useStyles = tss
+    .withName({ LogoCarousel })
+    .withNestedSelectors<"overlay">()
+    .create(({ theme, classes }) => ({
     root: {
-        paddingBottom: theme.spacing(7),
+        ...theme.spacing.topBottom("padding", 4),
         overflow: "hidden", 
         display: "flex",
         alignItems: "center",
         maskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)", // Apply mask
+            "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)",
+        position: "relative",
+        [`&:hover .${classes.overlay}`]: {
+            display: "flex",
+        }
+    },
+    overlay: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: "none",
+        alignItems: "center",
+        justifyContent: "center",
+        //backgroundColor: theme.colors.useCases.surfaces.background, 
+        backdropFilter: "blur(10px)", 
     },
     group: {
         justifyContent: "space-around",
