@@ -31,7 +31,7 @@ import { GlYoutubeVideoSection } from "gitlanding/GlYoutubeVideoSection";
 import { GlSlider } from "gitlanding/GlSlider";
 import { GlSectionDivider } from "gitlanding/GlSectionDivider";
 import { GlReviewSlide } from "gitlanding/GlReviewSlide";
-
+import { LogoCarousel } from "./LogoCarousel";
 
 export const githubRepoUrl = "https://github.com/InseeFrLab/onyxia-web";
 export const docsUrl = `https://docs.onyxia.sh`;
@@ -60,13 +60,20 @@ export function Home() {
                     "src": dragoonSvgUrl,
                     "hasShadow": false,
                 }}
-                hasLinkToSectionBellow={true}
                 classes={{
                     "subtitle": classes.subtitle,
                     "illustrationWrapper": classes.heroIllustrationWrapper,
                     "textWrapper": classes.textWrapper,
+                    "textAndImageWrapper": classes.heroTextImageWrapper,
                 }}
+                className={classes.firstHero}
             />
+            <LogoCarousel  className={css({ 
+                maxWidth: "min(1250px, 90%)",
+                overflow: "visible",
+                margin: "auto",
+
+            })} />
             <GlYoutubeVideoSection
                 title={t("Onyxia in action")}
                 src="https://www.youtube.com/embed/FvpNfVrxBFM"
@@ -81,8 +88,14 @@ export function Home() {
                     "type": "image",
                     "src": (() => {
                         switch (lang) {
-                            case "en": return theme.isDarkModeEnabled ? onyxiaUXDarkENUrl : onyxiaUXLightENUrl;
-                            case "fr": return theme.isDarkModeEnabled ? onyxiaUXDarkFRUrl : onyxiaUXLightFRUrl;
+                            case "en":
+                                return theme.isDarkModeEnabled
+                                    ? onyxiaUXDarkENUrl
+                                    : onyxiaUXLightENUrl;
+                            case "fr":
+                                return theme.isDarkModeEnabled
+                                    ? onyxiaUXDarkFRUrl
+                                    : onyxiaUXLightFRUrl;
                         }
                     })(),
                     "hasShadow": false,
@@ -160,7 +173,7 @@ export function Home() {
                 title={t("They have their own Onyxia Datalab")}
                 autoPlayTimeInterval={4}
                 classes={{
-                    "container": classes.glSliderContainer
+                    "container": classes.glSliderContainer,
                 }}
                 slides={[
                     <GlReviewSlide
@@ -168,8 +181,8 @@ export function Home() {
                         logoFill="white"
                         classes={{
                             "logo": css({
-                                "minWidth": 100
-                            })
+                                "minWidth": 100,
+                            }),
                         }}
                         descriptionMd={t("Review slide insee description")}
                         signature={t("Review slide insee signature")}
@@ -178,8 +191,8 @@ export function Home() {
                         logoUrl={logoStatisticNorwayPngUrl}
                         classes={{
                             "logo": css({
-                                "minWidth": 300
-                            })
+                                "minWidth": 300,
+                            }),
                         }}
                         logoFill="white"
                         descriptionMd={t("Review slide Statistic Norway description")}
@@ -189,8 +202,8 @@ export function Home() {
                         logoUrl={logoMercatorJpgUrl}
                         classes={{
                             "logo": css({
-                                "minWidth": 150
-                            })
+                                "minWidth": 150,
+                            }),
                         }}
                         logoFill="white"
                         descriptionMd={t("Review slide Mercator description")}
@@ -201,8 +214,8 @@ export function Home() {
                         classes={{
                             "logo": css({
                                 "minWidth": 150,
-                                "backgroundColor": "white"
-                            })
+                                "backgroundColor": "white",
+                            }),
                         }}
                         logoFill="white"
                         descriptionMd={t("Review slide Genes description")}
@@ -212,13 +225,13 @@ export function Home() {
                         logoUrl={logoExpertiseFranceJpgUrl}
                         classes={{
                             "logo": css({
-                                "minWidth": 150
-                            })
+                                "minWidth": 150,
+                            }),
                         }}
                         logoFill="white"
                         descriptionMd={t("Review slide ExpertiseFrance description")}
                         signature={t("Review slide ExpertiseFrance signature")}
-                    />
+                    />,
                 ]}
             />
             <GlSectionDivider />
@@ -253,7 +266,7 @@ export function Home() {
                     {
                         "title": t("bp title 6"),
                         "description": t("bp description 6"),
-                    }
+                    },
                     /*
                     {
                         "title": t("bp title 7"),
@@ -266,77 +279,76 @@ export function Home() {
                     */
                 ]}
             />
-
         </>
     );
 }
 
-const useStyles = tss
-    .withName({ Home })
-    .create(({ theme }) => ({
-        "title2": {
-            "color": theme.colors.useCases.typography.textFocus,
-            "fontStyle": "italic",
-        },
-        "subtitle": {
-            "color": theme.colors.useCases.typography.textPrimary,
-        },
-        "heroIllustrationWrapper": {
-            ...(() => {
-                if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                    return {
-                        "paddingRight": 30,
-                        "paddingLeft": 30,
-                    };
-                }
+const useStyles = tss.withName({ Home }).create(({ theme }) => ({
+    "firstHero": { paddingBottom: 0 },
+    "title2": {
+        "color": theme.colors.useCases.typography.textFocus,
+        "fontStyle": "italic",
+    },
+    "subtitle": {
+        "color": theme.colors.useCases.typography.textPrimary,
+    },
+    "heroTextImageWrapper": { "marginBottom": 0 },
+    "heroIllustrationWrapper": {
+        ...(() => {
+            if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                return {
+                    "paddingRight": 30,
+                    "paddingLeft": 30,
+                };
+            }
 
-                return {};
-            })(),
-            "maxWidth": 700,
-        },
-        "articleImage": {
-            "width": (() => {
-                if (theme.windowInnerWidth > 650) {
-                    return 700;
-                }
+            return {};
+        })(),
+        "maxWidth": 700,
+    },
+    "articleImage": {
+        "width": (() => {
+            if (theme.windowInnerWidth > 650) {
+                return 700;
+            }
 
-                return undefined;
-            })(),
-        },
-        "articleVideo": {
-            "width": (() => {
-                if (theme.windowInnerWidth > 650) {
-                    return 700;
-                }
+            return undefined;
+        })(),
+    },
+    "articleVideo": {
+        "width": (() => {
+            if (theme.windowInnerWidth > 650) {
+                return 700;
+            }
 
-                return undefined;
-            })(),
-            "borderRadius": 10,
-        },
+            return undefined;
+        })(),
+        "borderRadius": 10,
+    },
 
-        "textWrapper": {
-            ...(() => {
-                if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                    return {
-                        "marginLeft": 70,
-                    };
-                }
+    "textWrapper": {
+        ...(() => {
+            if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                return {
+                    "marginLeft": 70,
+                };
+            }
 
-                return {};
-            })(),
+            return {};
+        })(),
+    },
+    "checkListRoot": {
+        //...theme.spacing.topBottom("margin", 16),
+    },
+    "checkIcon": {
+        "& g": {
+            "fill": theme.colors.palette.focus.main,
         },
-        "checkListRoot": {
-            //...theme.spacing.topBottom("margin", 16),
-        },
-        "checkIcon": {
-            "& g": {
-                "fill": theme.colors.palette.focus.main,
-            },
-        },
-        "glSliderContainer": {
-            "maxWidth": 950,
-        }
-    }));
+    },
+    "glSliderContainer": {
+        "maxWidth": 950,
+    },
+}));
 
 export const { i18n } = declareComponentKeys<
     | "orange title"
