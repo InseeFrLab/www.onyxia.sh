@@ -1,20 +1,23 @@
 import { useMemo } from "react";
-import logoMercatorJpgUrl from "ui/assets/img/Logo_Mercator.jpg";
-import logoStatisticNorwayPngUrl from "ui/assets/img/Logo_StatisticNorway.png";
 import logoExpertiseFranceMonochromeDarkPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_dark.png";
 import logoExpertiseFranceMonochromeLightPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_light.png";
 import logoInseeMonochromeLightPng from "ui/assets/img/Logo_Insee_monochrome_light.png";
 import logoInseeMonochromeDarkPng from "ui/assets/img/Logo_Insee_monochrome_dark.png";
-import logoGenesPngUrl from "ui/assets/img/Logo_Genes.png";
+import logoMercatorMonochromeDarkPng from "ui/assets/img/Logo_Mercator_monochrome_dark.png";
+import logoMercatorMonochromeLightPng from "ui/assets/img/Logo_Mercator_monochrome_light.png";
+import logoGenesMonochromeDarkPng from "ui/assets/img/Logo_Genes_monochrome_dark.png";
+import logoGenesMonochromeLightPng from "ui/assets/img/Logo_Genes_monochrome_light.png";
+import logoStatisticNorwayMonochromeDarkPng from "ui/assets/img/Logo_StatisticNorway_monochrome_dark.png";
+import logoStatisticNorwayMonochromeLightPng from "ui/assets/img/Logo_StatisticNorway_monochrome_light.png";
 import { tss, keyframes } from "ui/theme";
 import { breakpointsValues } from "onyxia-ui";
 
 const getLogos = (isDark: boolean) => [
     { src: isDark ? logoInseeMonochromeDarkPng : logoInseeMonochromeLightPng, alt: "Logo Insee" },
     { src: isDark ? logoExpertiseFranceMonochromeDarkPng : logoExpertiseFranceMonochromeLightPng, alt: "Logo Expertise France" },
-    { src: logoGenesPngUrl, alt: "Logo Genes" },
-    { src: logoMercatorJpgUrl, alt: "Logo Mercator" },
-    { src: logoStatisticNorwayPngUrl, alt: "Logo Statistic Norway" },
+    { src: isDark ? logoGenesMonochromeDarkPng : logoGenesMonochromeLightPng, alt: "Logo Genes" },
+    { src: isDark ? logoMercatorMonochromeDarkPng : logoMercatorMonochromeLightPng, alt: "Logo Mercator" },
+    { src: isDark ? logoStatisticNorwayMonochromeDarkPng : logoStatisticNorwayMonochromeLightPng, alt: "Logo Statistic Norway" },
 ] as const;
 
 type Props= {
@@ -63,9 +66,9 @@ export function LogoCarousel(
                         css({
                             width: logoBaseWith * (() => {
                                 switch (logo.alt) {
-                                    case "Logo Insee": return 0.6;
-                                    case "Logo Genes": return 0.8;
-                                    case "Logo Statistic Norway": return 1.6;
+                                    case "Logo Insee": return 0.5;
+                                    case "Logo Genes": return 0.6;
+                                    case "Logo Statistic Norway": return 1.7;
                                     default: return 1;
                                 }
                             })()
