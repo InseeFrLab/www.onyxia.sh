@@ -68,7 +68,11 @@ export function Home() {
                 }}
                 className={classes.firstHero}
             />
-            <LogoCarousel />
+            <LogoCarousel  className={css({ 
+                width: "80%",
+                margin: "auto",
+
+            })} />
             <GlYoutubeVideoSection
                 title={t("Onyxia in action")}
                 src="https://www.youtube.com/embed/FvpNfVrxBFM"

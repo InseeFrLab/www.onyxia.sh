@@ -13,6 +13,7 @@ import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
 import type { Language } from "ui/i18n";
 import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
+export { keyframes } from "tss-react";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({

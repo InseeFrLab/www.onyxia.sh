@@ -1,71 +1,96 @@
-import { Box } from "@mui/material";
-import logoInseePngUrl from "ui/assets/img/Logo_Insee.png";
+import { useMemo } from "react";
 import logoMercatorJpgUrl from "ui/assets/img/Logo_Mercator.jpg";
 import logoStatisticNorwayPngUrl from "ui/assets/img/Logo_StatisticNorway.png";
-import logoExpertiseFranceJpgUrl from "ui/assets/img/Logo_ExpertiseFrance.jpg";
+import logoExpertiseFranceMonochromeDarkPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_dark.png";
+import logoExpertiseFranceMonochromeLightPng from "ui/assets/img/Logo_ExpertiseFrance_monochrome_light.png";
+import logoInseeMonochromeLightPng from "ui/assets/img/Logo_Insee_monochrome_light.png";
+import logoInseeMonochromeDarkPng from "ui/assets/img/Logo_Insee_monochrome_dark.png";
 import logoGenesPngUrl from "ui/assets/img/Logo_Genes.png";
-import { tss } from "ui/theme";
-import { keyframes } from "tss-react";
+import { tss, keyframes } from "ui/theme";
 import { breakpointsValues } from "onyxia-ui";
 
-const logos = [
-    { src: logoInseePngUrl, alt: "Logo Insee" },
-    { src: logoExpertiseFranceJpgUrl, alt: "Logo Expertise France" },
+const getLogos = (isDark: boolean) => [
+    { src: isDark ? logoInseeMonochromeDarkPng : logoInseeMonochromeLightPng, alt: "Logo Insee" },
+    { src: isDark ? logoExpertiseFranceMonochromeDarkPng : logoExpertiseFranceMonochromeLightPng, alt: "Logo Expertise France" },
     { src: logoGenesPngUrl, alt: "Logo Genes" },
     { src: logoMercatorJpgUrl, alt: "Logo Mercator" },
     { src: logoStatisticNorwayPngUrl, alt: "Logo Statistic Norway" },
-];
+] as const;
 
-export function LogoCarousel() {
-    const { classes } = useStyles();
+type Props= {
+    className?: string;
+};
+
+export function LogoCarousel(
+    props: Props
+) {
+
+    const { className } = props;
+
+    const { classes, theme, cx, css } = useStyles();
+
+    const logos = useMemo(() => getLogos(theme.isDarkModeEnabled), [theme.isDarkModeEnabled]);
+
+    const logoBaseWith = useMemo(() => {
+
+        if (theme.windowInnerWidth >= breakpointsValues.lg) {
+            return 200;
+        }
+
+        if (theme.windowInnerWidth >= breakpointsValues.md) {
+            return 150;
+        }
+
+        if (theme.windowInnerWidth >= breakpointsValues.sm) {
+            return 120;
+        }
+
+        return 100;
+
+    }, [theme.windowInnerWidth]);
+
+
+    const renderGroup = (isForSmoothScrolling: boolean) => (
+        <div className={classes.group}>
+            {logos.map((logo, index) => (
+                <img
+                    key={index}
+                    src={logo.src}
+                    alt={logo.alt}
+                    aria-hidden={isForSmoothScrolling ? "true" : undefined}
+                    className={cx(
+                        classes.logo,
+                        css({
+                            width: logoBaseWith * (() => {
+                                switch (logo.alt) {
+                                    case "Logo Insee": return 0.6;
+                                    case "Logo Genes": return 0.8;
+                                    case "Logo Statistic Norway": return 1.6;
+                                    default: return 1;
+                                }
+                            })()
+                        })
+                    )}
+                />
+            ))}
+        </div>
+    );
+
     return (
-        <Box className={classes.container}>
-            <div className={classes.group}>
-                {/* First set of logos */}
-                {logos.map((logo, index) => (
-                    <Box
-                        key={index}
-                        component="img"
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={classes.logo}
-                    />
-                ))}
-            </div>
-            <div className={classes.group}>
-                {/* Duplicated set of logos for smooth scrolling */}
-                {logos.map((logo, index) => (
-                    <Box
-                        key={index + logos.length}
-                        component="img"
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={classes.logo}
-                        aria-hidden="true"
-                    />
-                ))}
-            </div>
-        </Box>
+        <div className={cx(classes.root, className)}>
+            {renderGroup(false)}
+            {renderGroup(true)}
+        </div>
     );
 }
 
-// Define the keyframes using tss-react's keyframes utility
-const scrollAnimation = keyframes({
-    "from": {
-        transform: "translateX(0)",
-    },
-    "to": {
-        transform: "translateX(-100%)",
-    },
-});
 
 const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
-    container: {
+    root: {
         "paddingBottom": theme.spacing(7),
         overflow: "hidden", // Hide overflow for scrolling effect
         display: "flex",
         alignItems: "center",
-        width: "100%", // Ensure the container takes full width
         maskImage:
             "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)", // Apply mask
     },
@@ -80,23 +105,11 @@ const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
             "to": {
                 transform: "translateX(-100%)",
             },
-        })} 20s linear infinite`,
+        })} 60s linear infinite`,
         flexShrink: 0,
         minWidth: "100%",
     },
     logo: {
-        width: (() => {
-            switch (true) {
-                case theme.windowInnerWidth >= breakpointsValues.lg:
-                    return "200px"; // Larger logo size on large screens
-                case theme.windowInnerWidth >= breakpointsValues.md:
-                    return "150px"; // Medium logo size
-                case theme.windowInnerWidth >= breakpointsValues.sm:
-                    return "120px"; // Small logo size
-                default:
-                    return "100px"; // Default for extra small screens
-            }
-        })(),
         height: "auto", // Maintain aspect ratio
         objectFit: "contain", // Ensure the image fits properly
     },
