@@ -13,9 +13,9 @@ import { tss, keyframes } from "ui/theme";
 import { breakpointsValues } from "onyxia-ui";
 
 const getLogos = (isDark: boolean) => [
-    { src: isDark ? logoInseeMonochromeDarkPng : logoInseeMonochromeLightPng, alt: "Logo Insee" },
     { src: isDark ? logoExpertiseFranceMonochromeDarkPng : logoExpertiseFranceMonochromeLightPng, alt: "Logo Expertise France" },
     { src: isDark ? logoGenesMonochromeDarkPng : logoGenesMonochromeLightPng, alt: "Logo Genes" },
+    { src: isDark ? logoInseeMonochromeDarkPng : logoInseeMonochromeLightPng, alt: "Logo Insee" },
     { src: isDark ? logoMercatorMonochromeDarkPng : logoMercatorMonochromeLightPng, alt: "Logo Mercator" },
     { src: isDark ? logoStatisticNorwayMonochromeDarkPng : logoStatisticNorwayMonochromeLightPng, alt: "Logo Statistic Norway" },
 ] as const;
@@ -64,6 +64,7 @@ export function LogoCarousel(
                     className={cx(
                         classes.logo,
                         css({
+                            marginLeft: index === 0 ? theme.spacing(7) : undefined,
                             width: logoBaseWith * (() => {
                                 switch (logo.alt) {
                                     case "Logo Insee": return 0.5;
@@ -82,6 +83,7 @@ export function LogoCarousel(
     return (
         <div className={cx(classes.root, className)}>
             {renderGroup(false)}
+
             {renderGroup(true)}
         </div>
     );
@@ -90,8 +92,8 @@ export function LogoCarousel(
 
 const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
     root: {
-        "paddingBottom": theme.spacing(7),
-        overflow: "hidden", // Hide overflow for scrolling effect
+        paddingBottom: theme.spacing(7),
+        overflow: "hidden", 
         display: "flex",
         alignItems: "center",
         maskImage:
@@ -100,7 +102,7 @@ const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
     group: {
         justifyContent: "space-around",
         display: "flex",
-        gap: theme.spacing(2),
+        gap: theme.spacing(7),
         animation: `${keyframes({
             "from": {
                 transform: "translateX(0)",
@@ -108,12 +110,12 @@ const useStyles = tss.withName({ LogoCarousel }).create(({ theme }) => ({
             "to": {
                 transform: "translateX(-100%)",
             },
-        })} 60s linear infinite`,
+        })} 30s linear infinite`,
         flexShrink: 0,
         minWidth: "100%",
     },
     logo: {
-        height: "auto", // Maintain aspect ratio
-        objectFit: "contain", // Ensure the image fits properly
+        height: "auto", 
+        objectFit: "contain", 
     },
 }));

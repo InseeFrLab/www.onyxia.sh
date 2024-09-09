@@ -69,7 +69,8 @@ export function Home() {
                 className={classes.firstHero}
             />
             <LogoCarousel  className={css({ 
-                width: "80%",
+                maxWidth: "min(1250px, 90%)",
+                overflow: "visible",
                 margin: "auto",
 
             })} />
