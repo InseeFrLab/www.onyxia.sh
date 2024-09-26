@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.e5de19aa.js",
+    "main.js": "/static/js/main.82e697ea.js",
     "static/media/launcher.mp4": "/static/media/launcher.bf8620a99d66318b3a27.mp4",
     "static/media/launcher.webm": "/static/media/launcher.ad30ba69fdf88df15fb9.webm",
     "static/media/catalog.mp4": "/static/media/catalog.86a65c49c1fa50426324.mp4",
@@ -22,9 +22,9 @@
     "index.html": "/index.html",
     "static/media/OnyxiaLogo.svg": "/static/media/OnyxiaLogo.5b583358669e40552bc0b80491167714.svg",
     "static/media/tile.svg": "/static/media/tile.7cb52a42c82cc8f0b0609770e2f6131a.svg",
-    "main.e5de19aa.js.map": "/static/js/main.e5de19aa.js.map"
+    "main.82e697ea.js.map": "/static/js/main.82e697ea.js.map"
   },
   "entrypoints": [
-    "static/js/main.e5de19aa.js"
+    "static/js/main.82e697ea.js"
   ]
 }
