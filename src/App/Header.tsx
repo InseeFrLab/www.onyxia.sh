@@ -43,13 +43,6 @@ export function Header() {
           label: t("contact"),
           href: "https://join.slack.com/t/3innovation/shared_invite/zt-2pg2xjic6-u33SNQrMRokNYxyhPTK8Ww",
         },
-        /*
-                            {
-                                "label": t("pricing"),
-                                "onClick": () => evtOpenPricingDialog.post(),
-                                "href": "#",
-                            },
-                            */
         {
           label: t("our instance"),
           href: "https://datalab.sspcloud.fr/catalog",
