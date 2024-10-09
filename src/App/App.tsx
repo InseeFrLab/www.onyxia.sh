@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import { Body } from "./Body";
 import { Footer } from "./Footer";
 import { I18nFetchingSuspense } from "i18n";
+import { GlobalStyles } from "tss";
 
 export function App() {
   return (
@@ -17,15 +18,24 @@ export function App() {
 
 function AppContextualized() {
   return (
-    <GlTemplate
-      hasTopOfPageLinkButton={true}
-      headerOptions={{
-        position: "sticky",
-        isRetracted: "smart",
-      }}
-      header={<Header />}
-      body={<Body />}
-      footer={<Footer />}
-    />
+    <>
+      <GlobalStyles
+        styles={{
+          html: {
+            scrollBehavior: "smooth",
+          }
+        }}
+      />
+      <GlTemplate
+        hasTopOfPageLinkButton={true}
+        headerOptions={{
+          position: "sticky",
+          isRetracted: "smart",
+        }}
+        header={<Header />}
+        body={<Body />}
+        footer={<Footer />}
+      />
+    </>
   );
 }
