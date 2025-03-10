@@ -30,9 +30,9 @@ export const translations: Translations<"en"> = {
             As an Onyxia administrator you can also decide to pre fill some values based on what is known about the user.  
             This mechanism enables for example to inject the correct environment variables so that the user can easily connect to his S3 bucket within his service.`,
 
-    "article 3 title": `Versatile and secure authentication`,
-    "article 3 body": `Onyxia is distributed with a Keycloak login theme. 
-            Easily restrict who can use your platform with an email domain accept list.`,
+    "article 3 title": `Versatile authentication and authorization`,
+    "article 3 body": `Onyxia integrates with your existing IAM system. Whether you use [Keycloak](https://www.keycloak.org/), Microsoft [Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id), 
+    [Auth0](https://auth0.com/), or any other OpenID Connect/OAuth-compliant provider, Onyxia [seamlessly connects to it](https://docs.onyxia.sh/admin-doc/openid-connect-configuration).`,
 
     "bp title 1":
       "We are not trying to lock you in, we are trying to free you out.",
@@ -49,8 +49,8 @@ export const translations: Translations<"en"> = {
             Theses sensitive information are injected in the services under the form of environment variables.`,
 
     "bp title 4": `Apply your own branding`,
-    "bp description 4": `Onyxia enables to customize the default look and information displayed there and there 
-            without having to change to fork the code. Look for example how different looks [this instance from Etalab](https://sill-demo.etalab.gouv.fr/catalog/helm-charts-sill).`,
+    "bp description 4": `Onyxia offers extensive customization options.  
+        Modify the theme, header links, and logo without touching Onyxia's source code—simply by [adjusting your instance settings](https://docs.onyxia.sh/admin-doc/theme).`,
 
     "bp title 5": "Great for education ",
     "bp description 5": `Onyxia enables you to generate links that start a service just by clicking them.  
@@ -58,7 +58,7 @@ export const translations: Translations<"en"> = {
 
     "bp title 6": "Technology agnostic",
     "bp description 6": `By making the choice of Onyxia you aren't gambling on one specific stack being the future of Data science.  
-        Onyxia lets you leverage any technology as long as it is cloud native (containerized using HTTP).`,
+        Onyxia lets you leverage any technology as long as it is cloud native (containerized, using HTTP).`,
 
     "They have their own Onyxia Datalab": "They have an Onyxia Datalab",
     "Review slide insee description": `True innovation is making something almost impossible simple.  

@@ -34,11 +34,9 @@ export const translations: Translations<"fr"> = {
     Ce mécanisme permet notamment à l'utilisateur d'être déjà authentifié à S3 et d'avoir accès
     à son bucket personnel dès l'ouverture de Jupyter ou RStudio.`,
 
-    "article 3 title": `Un système d'authentification versatile`,
-    "article 3 body": `Onyxia s'intègre avec Keycloak via OpenID Connect. Restreignez 
-        l'inscription aux services aux utilisateurs détenteurs d'un email d'un domaine spécifique.  
-        Onyxia est distribué avec un thème Keycloak pour offrir une expérience utilisateur 
-        homogène.`,
+    "article 3 title": `Authentification et autorisation polyvalentes`,
+    "article 3 body": `Onyxia s'intègre à votre système IAM existant. Que vous utilisiez [Keycloak](https://www.keycloak.org/), Microsoft [Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id), 
+      [Auth0](https://auth0.com/) ou tout autre fournisseur compatible OpenID Connect/OAuth, Onyxia [s'y connecte en toute transparence](https://docs.onyxia.sh/admin-doc/openid-connect-configuration).`,
 
     "bp title 1": "Onyxia ne cherche pas à se rendre indispensable",
     "bp description 1": `Nous visons à rendre les utilisateurs de la plateforme suffisamment 
@@ -54,8 +52,8 @@ export const translations: Translations<"fr"> = {
 
     "bp title 4": `Personnalisez l'apparence d'Onyxia`,
     "bp description 4": `Onyxia offre de nombreuses options de personalisation.
-        Modifiez le thème, le lien et le logo de l'entête sans avoir à toucher au code source d'Onyxia. Mais uniquement
-        en modifiant les paramètres de votre instance. [Example du customization](https://sill-demo.etalab.gouv.fr/catalog/helm-charts-sill).`,
+        Modifiez le thème, les liens et le logo de l'entête sans avoir à toucher au code source d'Onyxia. Mais uniquement
+        en [modifiant les paramètres de votre instance](https://docs.onyxia.sh/admin-doc/theme).`,
 
     "bp title 5": "Un environnement de formation",
     "bp description 5": `Onyxia permet de générer des liens de lancement de service.  
