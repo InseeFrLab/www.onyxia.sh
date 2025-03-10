@@ -9,15 +9,13 @@ const e={Header:{documentation:"Documentation","our instance":"Notre instance",c
     Onyxia vous permet également de préciser des valeurs à préremplir spécifiquement
     pour l'utilisateur en question.
     Ce mécanisme permet notamment à l'utilisateur d'être déjà authentifié à S3 et d'avoir accès
-    à son bucket personnel dès l'ouverture de Jupyter ou RStudio.`,"article 3 title":"Un système d'authentification versatile","article 3 body":`Onyxia s'intègre avec Keycloak via OpenID Connect. Restreignez 
-        l'inscription aux services aux utilisateurs détenteurs d'un email d'un domaine spécifique.  
-        Onyxia est distribué avec un thème Keycloak pour offrir une expérience utilisateur 
-        homogène.`,"bp title 1":"Onyxia ne cherche pas à se rendre indispensable","bp description 1":`Nous visons à rendre les utilisateurs de la plateforme suffisamment 
+    à son bucket personnel dès l'ouverture de Jupyter ou RStudio.`,"article 3 title":"Authentification et autorisation polyvalentes","article 3 body":`Onyxia s'intègre à votre système IAM existant. Que vous utilisiez [Keycloak](https://www.keycloak.org/), Microsoft [Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id), 
+      [Auth0](https://auth0.com/) ou tout autre fournisseur compatible OpenID Connect/OAuth, Onyxia [s'y connecte en toute transparence](https://docs.onyxia.sh/admin-doc/openid-connect-configuration).`,"bp title 1":"Onyxia ne cherche pas à se rendre indispensable","bp description 1":`Nous visons à rendre les utilisateurs de la plateforme suffisamment 
         familiers avec les technologies sous-jacentes (Kubernetes, helm, S3...) pour pouvoir s'affranchir 
         d'Onyxia.  Nous affichons les commandes exécutées sur le cluster, sur S3, sur Vault par le biais d'Onyxia.`,"bp title 2":"Un explorateur de fichiers S3","bp description 2":"Onyxia permet de glisser déposer ses jeux de données pour les uploader sur S3.","bp title 3":"Intégration avec [HashiCorp Vault](https://www.vaultproject.io)","bp description 3":`Onyxia permet de stocker les informations sensibles de type 
         clés d'API dans Vault et de les rendre accessibles dans les services sous forme de variable.`,"bp title 4":"Personnalisez l'apparence d'Onyxia","bp description 4":`Onyxia offre de nombreuses options de personalisation.
-        Modifiez le thème, le lien et le logo de l'entête sans avoir à toucher au code source d'Onyxia. Mais uniquement
-        en modifiant les paramètres de votre instance. [Example du customization](https://sill-demo.etalab.gouv.fr/catalog/helm-charts-sill).`,"bp title 5":"Un environnement de formation","bp description 5":`Onyxia permet de générer des liens de lancement de service.  
+        Modifiez le thème, les liens et le logo de l'entête sans avoir à toucher au code source d'Onyxia. Mais uniquement
+        en [modifiant les paramètres de votre instance](https://docs.onyxia.sh/admin-doc/theme).`,"bp title 5":"Un environnement de formation","bp description 5":`Onyxia permet de générer des liens de lancement de service.  
         Cette fonctionalité peut être utilisée pour créer des catalogues de formations comme [celui-là](https://www.sspcloud.fr/formation).`,"bp title 6":"Technologiquement agnostique","bp description 6":`Avec Onyxia vous n'investissez pas sur une stack technique en particulier sauf Kubernetes et S3.
     Onyxia permet de rendre accessible n'importe quelle technologie cloud native et ne génére 
     donc pas de potentielle dette technique future.`,"They have their own Onyxia Datalab":"Ils ont leur Datalab Onyxia","Review slide insee description":`La véritable innovation c'est de rendre simple quelque chose de quasi impossible.  
