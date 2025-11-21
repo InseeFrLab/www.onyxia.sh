@@ -1,4 +1,4 @@
-import { GITHUB_REPO_URL, DOCUMENTATION_URL } from "constants";
+import { GITHUB_ONYXIA_REPO_URL, GITHUB_SITE_REPO_URL, DOCUMENTATION_URL } from "constants";
 import { GlFooter } from "gitlanding/GlFooter";
 import { declareComponentKeys, useTranslation } from "i18n";
 
@@ -7,9 +7,9 @@ export function Footer() {
 
   return (
     <GlFooter
-      bottomDivContent={`[GitHub](${GITHUB_REPO_URL}) - [Documentation](${DOCUMENTATION_URL}) - [${t(
+      bottomDivContent={`[GitHub](${GITHUB_ONYXIA_REPO_URL}) - [Documentation](${DOCUMENTATION_URL}) - [${t(
         "edit this website"
-      )}](${GITHUB_REPO_URL})`}
+      )}](${GITHUB_SITE_REPO_URL})`}
     />
   );
 }

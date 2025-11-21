@@ -1,4 +1,4 @@
-import { GITHUB_REPO_URL, DOCUMENTATION_URL } from "constants";
+import { GITHUB_ONYXIA_REPO_URL, DOCUMENTATION_URL } from "constants";
 import { GlHeader } from "gitlanding/GlHeader";
 import onyxiaLogoSvgUrl from "assets/svg/OnyxiaLogo.svg";
 import { ThemedSvg } from "onyxia-ui/ThemedSvg";
@@ -33,7 +33,7 @@ export function Header() {
       links={[
         {
           label: "GitHub",
-          href: GITHUB_REPO_URL
+          href: GITHUB_ONYXIA_REPO_URL
         },
         {
           label: t("documentation"),
@@ -49,7 +49,7 @@ export function Header() {
         },
       ]}
       enableDarkModeSwitch={true}
-      githubRepoUrl={GITHUB_REPO_URL}
+      githubRepoUrl={GITHUB_ONYXIA_REPO_URL}
       githubButtonSize="large"
       showGithubStarCount={true}
       customItemEnd={{
