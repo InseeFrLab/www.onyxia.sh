@@ -16,10 +16,10 @@ const e={Header:{documentation:"Documentation","our instance":"Notre instance",c
         clés d'API dans Vault et de les rendre accessibles dans les services sous forme de variable.`,"bp title 4":"Personnalisez l'apparence d'Onyxia","bp description 4":`Onyxia offre de nombreuses options de personalisation.
         Modifiez le thème, les liens et le logo de l'entête sans avoir à toucher au code source d'Onyxia. Mais uniquement
         en [modifiant les paramètres de votre instance](https://docs.onyxia.sh/admin-doc/theme).`,"bp title 5":"Un environnement de formation","bp description 5":`Onyxia permet de générer des liens de lancement de service.  
-        Cette fonctionalité peut être utilisée pour créer des catalogues de formations comme [celui-là](https://www.sspcloud.fr/formation).`,"bp title 6":"Technologiquement agnostique","bp description 6":`Avec Onyxia vous n'investissez pas sur une stack technique en particulier sauf Kubernetes et S3.
+        Cette fonctionalité peut être utilisée pour créer des catalogues de formations comme [celui-là](https://www.sspcloud.fr/catalog).`,"bp title 6":"Technologiquement agnostique","bp description 6":`Avec Onyxia vous n'investissez pas sur une stack technique en particulier sauf Kubernetes et S3.
     Onyxia permet de rendre accessible n'importe quelle technologie cloud native et ne génére 
     donc pas de potentielle dette technique future.`,"They have their own Onyxia Datalab":"Ils ont leur Datalab Onyxia","Review slide insee description":`La véritable innovation c'est de rendre simple quelque chose de quasi impossible.  
-    C'est l'essence même d Onyxia qui met à la portée du plus grand nombre la mise en place à la demande d'environnements 
+    C'est l'essence même d'Onyxia qui met à la portée du plus grand nombre la mise en place à la demande d'environnements 
     sophistiqués pour la Datascience. Je suis extrêmement fier que l'[Insee](https://www.insee.fr/fr) ait lancé le développement de ce logiciel et porte 
     toujours des contributeurs majeurs mais aussi enthousiaste qu'une communauté se mette en marche pour enrichir collectivement 
     ses fonctionnalités.`,"Review slide insee signature":"Jean-Séverin Lair, DSI de l'Insee","Review slide Mercator description":`[Mercator Ocean International](https://www.mercator-ocean.eu/) est une organisation à but non lucratif qui fournit des 
@@ -28,9 +28,9 @@ const e={Header:{documentation:"Documentation","our instance":"Notre instance",c
     Ceci permettant ainsi le développement futur de modèles et de produits de données vers des jumeaux numériques émergents de l'océan.
     `,"Review slide Mercator signature":"Chloé Delpont Ramat, Full Stack Dev @ Mercator Ocean International","Review slide Statistic Norway description":`[Statistics Norway](https://www.ssb.no/en) est ravi d'intégrer Onyxia en tant que composant clé de notre plateforme de données. 
     Les capacités d'Onyxia s'alignent parfaitement avec notre mission et ajoutent une valeur substantielle à nos opérations de données. Nous soutenons 
-    pleinement Onyxia et offrons tout notre soutien pour sa promotion.`,"Review slide Statistic Norway signature":"Statistics Norway, l'institut national de statistique de Norvège","Review slide ExpertiseFrance description":`Le  projet datafid, mis en œuvre par [Expertise France, a déployé Onyxia](https://www.expertisefrance.fr/en/fiche-projet?id=850376)  
+    pleinement Onyxia et offrons tout notre soutien pour sa promotion.`,"Review slide Statistic Norway signature":"Statistics Norway, l'institut national de statistique de Norvège","Review slide ExpertiseFrance description":`Le  projet datafid, mis en œuvre par [Expertise France, a déployé Onyxia](https://www.expertisefrance.fr/en/our-projects)  
     pour proposer un datalab aux datascientists des Directions Générales des Impôts et des Douanes de quatre pays de l'Afrique de l'ouest. 
-    L’outil  permet à ces administrations de s’exercer à la manipulation de leurs  données pour mieux les comprendre et les valoriser.
+    L'outil  permet à ces administrations de s'exercer à la manipulation de leurs données pour mieux les comprendre et les valoriser.
     `,"Review slide ExpertiseFrance signature":"Expertise France, l'agence française d'expertise technique internationale","Review slide Genes description":`Onyxia est un atout majeur pour [le Groupe des Écoles Nationales d'Économie et Statistique (GENES)](https://www.groupe-genes.fr) en matière de data science.  
       Au-delà de la simple facilitation d'accès aux outils de traitement de données modernes, Onyxia promeut activement les bonnes pratiques en 
       matière de traitement des données et de programmation, en favorisant la reproductibilité des résultats.  
