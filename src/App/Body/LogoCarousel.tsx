@@ -73,7 +73,6 @@ export function LogoCarousel(
                             marginLeft: index === 0 ? theme.spacing(7) : undefined,
                             width: logoBaseWith * (() => {
                                 switch (logo.alt) {
-                                    case "Logo Insee": return 0.5;
                                     case "Logo Genes": return 0.6;
                                     case "Logo Statistic Norway": return 1.7;
                                     default: return 1;
